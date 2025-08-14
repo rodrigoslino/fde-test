@@ -95,7 +95,7 @@ def test_non_numeric_raises_type_error(non_numeric_value):
 
 
 @pytest.mark.parametrize("bad_math_value", [math.nan, math.inf, -math.inf])
-def test_nan_raises_value_error(bad_math_value):
+def test_bad_math_value_raises_value_error(bad_math_value):
     with pytest.raises(ValueError):
         sort(bad_math_value, 10, 10, 5)
     with pytest.raises(ValueError):
