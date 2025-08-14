@@ -21,7 +21,7 @@ MASS_CUTOFF = 20  # kg
 Number = Union[int, float]
 
 
-def _validate_positive(name: str, value: Number) -> None:
+def _validate(name: str, value: Number) -> None:
     # Reject bool explicitly (bool is a subclass of int) and any non numeric type
     if isinstance(value, bool) or not isinstance(value, (int, float)):
         raise TypeError(f"{name} must be a real number, got {type(value).__name__}")
@@ -42,7 +42,7 @@ def sort(width: Number, height: Number, length: Number, mass: Number) -> str:
         ("length", length),
         ("mass", mass),
     ):
-        _validate_positive(label, v)
+        _validate(label, v)
 
     # compute
     volume = width * height * length
